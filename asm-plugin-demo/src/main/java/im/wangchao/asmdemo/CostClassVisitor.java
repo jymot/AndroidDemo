@@ -30,9 +30,13 @@ public class CostClassVisitor extends ClassVisitor {
                     super.onMethodEnter();
                     if (inject){
                         mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                        mv.visitLdcInsn("========start=========(" + name + ")");
+                        mv.visitLdcInsn("========start=========(" + name + "desc: " + desc + ")");
                         mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println",
                                 "(Ljava/lang/String;)V", false);
+
+                        mv.visitLdcInsn("wcwcwc");
+                        mv.visitLdcInsn("========start=========(name: " + name + ", desc: " + desc + ")");
+                        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "e", "(Ljava/lang/String;Ljava/lang/String;)I", false);
                     }
                 }
 
@@ -40,9 +44,13 @@ public class CostClassVisitor extends ClassVisitor {
                     super.onMethodExit(opcode);
                     if (inject){
                         mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                        mv.visitLdcInsn("========end=========(" + name + ")");
+                        mv.visitLdcInsn("========end=========(" + name + "desc: " + desc + ")");
                         mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println",
                                 "(Ljava/lang/String;)V", false);
+
+                        mv.visitLdcInsn("wcwcwc");
+                        mv.visitLdcInsn("========end=========(name: " + name + ", desc: " + desc + ")");
+                        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "e", "(Ljava/lang/String;Ljava/lang/String;)I", false);
                     }
                 }
 

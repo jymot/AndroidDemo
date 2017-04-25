@@ -1,5 +1,5 @@
 group 'im.wangchao'
-version '0.0.4'
+version '0.0.7'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
