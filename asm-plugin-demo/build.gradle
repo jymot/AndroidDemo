@@ -1,0 +1,29 @@
+group 'im.wangchao'
+version '0.0.4'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+//    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:2.3.0'
+    compile 'commons-io:commons-io:2.4'
+    compile group: 'org.ow2.asm', name: 'asm', version: '5.0.3'
+}
+
+// mavenLocal
+uploadArchives {
+    repositories {
+        mavenDeployer {
+//            repository(url: mavenLocal().url)
+            repository(url: uri('../m2'))
+        }
+    }
+}
