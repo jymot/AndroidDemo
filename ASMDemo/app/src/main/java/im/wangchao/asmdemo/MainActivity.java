@@ -3,6 +3,7 @@ package im.wangchao.asmdemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +12,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         test();
+
+        findViewById(R.id.testBtn).setOnClickListener(new View.OnClickListener() {
+            @CostTest @Override public void onClick(View v) {
+                Log.e("wcwcwc", "test btn click!");
+            }
+        });
     }
 
     @CostTest public void test(){
