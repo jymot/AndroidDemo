@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
         test();
 
         findViewById(R.id.testBtn).setOnClickListener(new View.OnClickListener() {
-            @CostTest @Override public void onClick(View v) {
+            @CostTest(test = "haha-2") @Override public void onClick(View v) {
                 Log.e("wcwcwc", "test btn click!");
             }
         });
     }
 
-    @CostTest public void test(){
-        Log.e("wcwcwc", "haha");
+    @CostTest(test = "haha-1") public void test(){
+        Log.e("wcwcwc", "test method");
     }
 }

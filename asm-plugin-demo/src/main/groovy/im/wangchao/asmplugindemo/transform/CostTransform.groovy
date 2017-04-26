@@ -64,7 +64,7 @@ class CostTransform extends Transform{
 
                             ClassReader cr = new ClassReader(file.bytes)
                             ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_MAXS)
-                            ClassVisitor cv = new CostClassVisitor(Opcodes.ASM5, cw)
+                            ClassVisitor cv = new CostClassVisitor(Opcodes.ASM5, cw, project)
 
                             cr.accept(cv, ClassReader.EXPAND_FRAMES)
 
